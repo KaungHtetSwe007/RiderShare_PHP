@@ -1,122 +1,173 @@
+
 <?php
+session_start();
 require_once __DIR__ . '/../include/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get form data
-    $phone = $_POST['phone'] ?? '';
-    $name = $_POST['name'] ?? '';
-    $vehicle_type = $_POST['vehicle_type'] ?? '';
-    $nrc = $_POST['nrc'] ?? '';
-    $dob = $_POST['dob'] ?? '';
-    $address = $_POST['address'] ?? '';
-    $license_number = $_POST['license_number'] ?? '';
-    $license_expiry = $_POST['license_expiry'] ?? '';
-    $vehicle_registration = $_POST['vehicle_registration'] ?? '';
-    $vehicle_model = $_POST['vehicle_model'] ?? '';
-    $vehicle_year = $_POST['vehicle_year'] ?? '';
-    $vehicle_color = $_POST['vehicle_color'] ?? '';
-    $engine_number = $_POST['engine_number'] ?? '';
-    $terms = isset($_POST['terms']) ? 1 : 0;
-    
-    // File upload directory
-    $uploadDir = __DIR__ . '/../uploads/drivers/';
-    if (!file_exists($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
-    }
-    
-    // Handle file uploads
-    $files = [];
-    $fileFields = [
-        'nrc_front', 'nrc_back', 'license_front', 'license_back', 'bluebook', 'vehicle_photos'
+// Initialize response array
+$response = ['success' => false, 'message' => ''];
+
+try {
+    // Validate required fields
+    $requiredFields = [
+        'phone', 'name', 'vehicle_type', 'nrc', 'dob', 'address',
+        'license_number', 'license_expiry', 'vehicle_registration',
+        'vehicle_model', 'vehicle_year', 'vehicle_color', 'engine_number'
     ];
     
-    foreach ($fileFields as $field) {
-        if (!empty($_FILES[$field]['name'])) {
-            // Handle multiple files for vehicle photos
-            if ($field === 'vehicle_photos') {
-                $vehiclePhotos = [];
-                for ($i = 0; $i < count($_FILES[$field]['name']); $i++) {
-                    $fileName = uniqid() . '_' . basename($_FILES[$field]['name'][$i]);
-                    $targetPath = $uploadDir . $fileName;
-                    
-                    if (move_uploaded_file($_FILES[$field]['tmp_name'][$i], $targetPath)) {
-                        $vehiclePhotos[] = 'uploads/drivers/' . $fileName;
-                    }
-                }
-                $files[$field] = implode(',', $vehiclePhotos);
-            } 
-            // Handle single file uploads
-            else {
-                $fileName = uniqid() . '_' . basename($_FILES[$field]['name']);
-                $targetPath = $uploadDir . $fileName;
-                
-                if (move_uploaded_file($_FILES[$field]['tmp_name'], $targetPath)) {
-                    $files[$field] = 'uploads/drivers/' . $fileName;
-                }
+    foreach ($requiredFields as $field) {
+        if (empty($_POST[$field])) {
+            throw new Exception("$field is required");
+        }
+    }
+    
+    // Validate file uploads
+    $requiredFiles = ['nrc_front', 'nrc_back', 'license_front', 'license_back', 'bluebook'];
+    foreach ($requiredFiles as $file) {
+        if (empty($_FILES[$file]['name'])) {
+            throw new Exception("$file is required");
+        }
+    }
+    
+    if (empty($_FILES['vehicle_photos']['name'][0])) {
+        throw new Exception("At least one vehicle photo is required");
+    }
+    
+    // Check for duplicates
+    $phone = $_POST['phone'];
+    $nrc = $_POST['nrc'];
+    $license_number = $_POST['license_number'];
+    $vehicle_registration = $_POST['vehicle_registration'];
+    $engine_number = $_POST['engine_number'];
+    
+    // Check phone number
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM drivers WHERE phone = ?");
+    $stmt->execute([$phone]);
+    if ($stmt->fetchColumn() > 0) {
+        throw new Exception("Phone number already registered");
+    }
+    
+    // Check NRC
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM drivers WHERE nrc = ?");
+    $stmt->execute([$nrc]);
+    if ($stmt->fetchColumn() > 0) {
+        throw new Exception("NRC number already registered");
+    }
+    
+    // Check license number
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM drivers WHERE license_number = ?");
+    $stmt->execute([$license_number]);
+    if ($stmt->fetchColumn() > 0) {
+        throw new Exception("License number already registered");
+    }
+    
+    // Check vehicle registration number
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM vehicles WHERE registration_no = ?");
+    $stmt->execute([$vehicle_registration]);
+    if ($stmt->fetchColumn() > 0) {
+        throw new Exception("Vehicle registration number already registered");
+    }
+    
+    // Check engine number
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM vehicles WHERE engine_number = ?");
+    $stmt->execute([$engine_number]);
+    if ($stmt->fetchColumn() > 0) {
+        throw new Exception("Engine number already registered");
+    }
+    
+    // Start transaction
+    $pdo->beginTransaction();
+    
+    // Insert driver data
+    $stmt = $pdo->prepare("INSERT INTO drivers 
+        (phone, name, nrc, dob, address, vehicle_type, license_number, license_expiry, status) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending')");
+    $stmt->execute([
+        $phone,
+        $_POST['name'],
+        $nrc,
+        $_POST['dob'],
+        $_POST['address'],
+        $_POST['vehicle_type'],
+        $license_number,
+        $_POST['license_expiry']
+    ]);
+    $driver_id = $pdo->lastInsertId();
+
+
+// ✅ Set driver_id in session AFTER insert
+    $_SESSION['driver_id'] = $driver_id;
+    
+    // Insert vehicle data
+    $stmt = $pdo->prepare("INSERT INTO vehicles 
+        (driver_id, registration_no, vehicle_model, vehicle_year, vehicle_color, engine_number) 
+        VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([
+        $driver_id,
+        $vehicle_registration,
+        $_POST['vehicle_model'],
+        $_POST['vehicle_year'],
+        $_POST['vehicle_color'],
+        $engine_number
+    ]);
+    
+    // Create upload directory
+    $upload_dir = "uploads/drivers/$driver_id/";
+    if (!file_exists($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    }
+    
+    // Process file uploads (NRC, License, Bluebook)
+    $fileTypes = ['nrc_front', 'nrc_back', 'license_front', 'license_back', 'bluebook'];
+    foreach ($fileTypes as $type) {
+        if (!empty($_FILES[$type]['name'])) {
+            $file_name = $type . '_' . time() . '_' . basename($_FILES[$type]['name']);
+            $target_file = $upload_dir . $file_name;
+            
+            if (move_uploaded_file($_FILES[$type]['tmp_name'], $target_file)) {
+                $stmt = $pdo->prepare("INSERT INTO driver_documents 
+                    (driver_id, document_type, file_path) 
+                    VALUES (?, ?, ?)");
+                $stmt->execute([$driver_id, $type, $target_file]); // ✅ save full path
             }
         }
     }
     
-    // Validate input
-    $errors = [];
-    
-    // Phone validation
-    if (empty($phone)) {
-        $errors[] = "Phone number is required";
-    } elseif (!preg_match('/^9[0-9]{8,9}$/', $phone)) {
-        $errors[] = "Invalid phone number format";
-    }
-    
-    // Name validation
-    if (empty($name)) {
-        $errors[] = "Name is required";
-    }
-    
-    // Add more validations as needed...
-    
-    // Check if phone already exists
-    $stmt = $pdo->prepare("SELECT id FROM drivers WHERE phone = ?");
-    $stmt->execute([$phone]);
-    if ($stmt->rowCount() > 0) {
-        $errors[] = "Phone number already registered";
-    }
-    
-    // Check terms agreement
-    if (!$terms) {
-        $errors[] = "You must agree to the terms and conditions";
-    }
-    
-    // If no errors, create driver
-    if (empty($errors)) {
-        try {
-            $stmt = $pdo->prepare("INSERT INTO drivers (
-                phone, name, vehicle_type, nrc, dob, address, license_number, license_expiry,
-                vehicle_registration, vehicle_model, vehicle_year, vehicle_color, engine_number,
-                nrc_front, nrc_back, license_front, license_back, bluebook, vehicle_photos
-            ) VALUES (
-                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-            )");
+    // Process vehicle photos
+    foreach ($_FILES['vehicle_photos']['tmp_name'] as $key => $tmp_name) {
+        if (!empty($_FILES['vehicle_photos']['name'][$key])) {
+            $file_name = 'vehicle_' . ($key+1) . '_' . time() . '_' . basename($_FILES['vehicle_photos']['name'][$key]);
+            $target_file = $upload_dir . $file_name;
             
-            $stmt->execute([
-                $phone, $name, $vehicle_type, $nrc, $dob, $address, $license_number, $license_expiry,
-                $vehicle_registration, $vehicle_model, $vehicle_year, $vehicle_color, $engine_number,
-                $files['nrc_front'] ?? null, $files['nrc_back'] ?? null, 
-                $files['license_front'] ?? null, $files['license_back'] ?? null,
-                $files['bluebook'] ?? null, $files['vehicle_photos'] ?? null
-            ]);
-            
-            // Success - redirect to confirmation page
-            header("Location: driver_signup_success.php");
-            exit;
-        } catch (PDOException $e) {
-            $errors[] = "Database error: " . $e->getMessage();
+            if (move_uploaded_file($tmp_name, $target_file)) {
+                $stmt = $pdo->prepare("INSERT INTO driver_documents 
+                    (driver_id, document_type, file_path) 
+                    VALUES (?, 'vehicle_photo', ?)");
+                $stmt->execute([$driver_id, $target_file]); // ✅ save full path
+            }
         }
     }
     
-    // If there were errors, pass them back to the form
-    session_start();
-    $_SESSION['driver_signup_errors'] = $errors;
-    $_SESSION['driver_signup_data'] = $_POST;
-    header("Location: /index.php#driver-auth");
-    exit;
+    // Commit transaction
+    $pdo->commit();
+    
+    // Redirect to success page
+    header("Location: /driver_signup_success.php");
+    exit();
+    
+} catch (Exception $e) {
+    if (isset($pdo) && $pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
+    $response['message'] = $e->getMessage();
+    
+    // Log error for debugging
+    error_log("Driver signup error: " . $response['message']);
+    
+    // Store error in session for display on form
+    $_SESSION['driver_signup_errors'] = [$response['message']];
+    $_SESSION['driver_form_data'] = $_POST;
+    
+    // Redirect back to form
+    header("Location: /index.php#driverForm");
+    exit();
 }

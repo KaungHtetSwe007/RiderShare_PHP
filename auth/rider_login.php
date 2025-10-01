@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['rider_name'] = $rider['name'];
             
             // Redirect back to homepage
-            header("Location: /index.php");
+            header("Location: /rider_dashboard.php");
             exit;
         } else {
             $errors[] = "Invalid phone number or password";
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $_SESSION['login_errors'] = $errors;
     $_SESSION['login_data'] = ['phone' => $phone];
-    header("Location: /index.php#rider-auth");
+    header("Location: /rider_dashboard.php#rider-auth");
     exit;
 }
 ?>

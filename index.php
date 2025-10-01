@@ -36,6 +36,8 @@
                         <?php include('navbar.php') ?>
                         <link href="assests/css/maincontent.css" rel="stylesheet">
                         <link href="assests/css/driverMultiBar.css" rel="stylesheet">
+                        <link href="/assests/css/routeselect.css" rel="stylesheet">
+                        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
                         <script src="./assests/js/driverMultiBar.js"></script>
                         <script src="/assests/js/maincontent.js"></script>
                         <main>
@@ -63,7 +65,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="d-flex align-items-center">
+                                            <!-- <div class="d-flex align-items-center">
                                                 <div class="d-flex me-4">
                                                     <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle border border-3 border-white" width="40" height="40">
                                                     <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle border border-3 border-white ms-n2" width="40" height="40">
@@ -72,7 +74,7 @@
                                                 <div>
                                                     <p class="mb-0 small"><i class="fas fa-star text-warning me-1"></i> <strong>4.9</strong> (10K+ reviews)</p>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
 
                                         <div class="col-lg-6 mt-5 mt-lg-0">
@@ -193,7 +195,8 @@
                             </section>
 
 
-                            <section class="authentication-section py-5 bg-light">
+
+                            <section class="authentication-section py-5 bg-light" id="driverForm">
                                 <div class="container">
                                     <h2 class="section-title text-center mb-5">စတင်အသုံးပြုရန်</h2>
 
@@ -301,335 +304,395 @@
                                                 </form>
                                             </div>
 
-                                            <!-- Driver Auth -->
+                                            <!-- Driver Auth Tab -->
                                             <div class="tab-pane fade" id="driver-auth">
-                                                <div class="text-center mb-4">
-                                                    <h4><i class="fas fa-car me-2"></i>ယာဉ်မောင်း မှတ်ပုံတင်ခြင်း</h4>
-                                                    <div class="location-badge">
-                                                        <i class="fas fa-map-marker-alt me-2"></i>ပုသိမ်မြို့
+                                                <div class="container">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-md-10 col-lg-8">
+
+                                                            <!-- Inside your driver form in index.php -->
+                                                            <div class="alert-container">
+                                                                <?php if (isset($_SESSION['driver_signup_errors']) && !empty($_SESSION['driver_signup_errors'])): ?>
+                                                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                                        <strong>မှတ်ပုံတင်မှုတွင် အမှားတစ်ခုရှိပါသည်:</strong>
+                                                                        <ul class="mb-0 mt-2">
+                                                                            <?php foreach ($_SESSION['driver_signup_errors'] as $error): ?>
+                                                                                <li><?= $error ?></li>
+                                                                            <?php endforeach; ?>
+                                                                        </ul>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <?php
+                                                                    // Keep the form data for repopulation
+                                                                    $driver_form_data = $_SESSION['driver_form_data'] ?? [];
+                                                                    unset($_SESSION['driver_signup_errors']);
+                                                                    ?>
+                                                                <?php endif; ?>
+                                                            </div>
+
+                                                            <div class="form-container">
+                                                                <div class="header-section">
+                                                                    <h4><i class="fas fa-car me-2"></i>ယာဉ်မောင်း မှတ်ပုံတင်ခြင်း</h4>
+
+                                                                </div>
+
+                                                                <!-- Progress Bar -->
+                                                                <div class="progress-container">
+                                                                    <div class="progress" style="height: 10px;">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    </div>
+                                                                    <div class="step-indicators">
+                                                                        <div class="step-indicator active">1</div>
+                                                                        <div class="step-indicator">2</div>
+                                                                        <div class="step-indicator">3</div>
+                                                                        <div class="step-indicator">4</div>
+                                                                        <div class="step-indicator">5</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Form Steps -->
+                                                                <form id="driverSignupForm" action="auth/driver_signup.php" method="POST" enctype="multipart/form-data">
+                                                                    <!-- Step 1: Basic Information -->
+                                                                    <div class="step active" id="step1">
+                                                                        <h4 class="form-section-title"><i class="fas fa-user-circle me-2"></i>အခြေခံ အချက်အလက်များ</h4>
+
+                                                                        <div class="mb-4">
+                                                                            <label class="form-label">ဖုန်းနံပါတ်</label>
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-text">+95</span>
+                                                                                <input type="tel" name="phone" class="form-control" placeholder="9xxxxxxxx"
+                                                                                    pattern="[9]{1}[0-9]{8,9}" required>
+                                                                            </div>
+                                                                            <small class="form-text text-muted">ဥပမာ - 912345678</small>
+                                                                            <div class="invalid-feedback">ဖုန်းနံပါတ် မှန်ကန်စွာ ဖြည့်သွင်းပါ (9xxxxxxxx)</div>
+                                                                        </div>
+
+                                                                        <div class="mb-4">
+                                                                            <label class="form-label">အမည်</label>
+                                                                            <div class="input-group">
+                                                                                <input type="text" name="name" class="form-control" placeholder="သင့်အမည် အပြည့်အစုံ" required>
+                                                                            </div>
+                                                                            <div class="invalid-feedback">ကျေးဇူးပြု၍ သင့်အမည်ကို ဖြည့်သွင်းပါ</div>
+                                                                        </div>
+
+                                                                        <div class="mb-4">
+                                                                            <label class="form-label">ယာဉ်အမျိုးအစား</label>
+                                                                            <div class="input-group">
+                                                                                <select class="form-select" name="vehicle_type" required>
+                                                                                    <option value="" selected disabled>ရွေးချယ်ပါ</option>
+                                                                                    <option value="Car">ကား (Toyota, Suzuki)</option>
+                                                                                    <option value="Oway">အိုးဝေ (Oway)</option>
+                                                                                    <option value="Motorcycle">ဆိုင်ကယ် (Motorcycle)</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="invalid-feedback">ယာဉ်အမျိုးအစား ရွေးချယ်ပါ</div>
+                                                                        </div>
+                                                                        <div class="mb-3 text-center">
+                                                                            <div class="input-group">
+                                                                                <small>အကောင့်ရှိပြီးသားလား?
+                                                                                    <a href="/driver_login.php" class="auth-toggle" id="showLogin">အကောင့်ဝင်ရန်</a>
+                                                                                </small>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-end mt-5">
+                                                                            <div class="input-group">
+                                                                                <button type="button" class="btn btn-next btn-action next-step" data-next="2">
+                                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Step 2: Driver Information -->
+                                                                    <div class="step" id="step2">
+                                                                        <h4 class="form-section-title"><i class="fas fa-id-card me-2"></i>ယာဉ်မောင်း အချက်အလက်များ</h4>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">မှတ်ပုံတင်အမှတ် (NRC)</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="text" name="nrc" class="form-control" placeholder="ဥပမာ - ၁၂/ကမန(နိုင်)၁၂၃၄၅၆" required>
+                                                                                </div>
+                                                                                <div class="invalid-feedback">NRC နံပါတ် ဖြည့်သွင်းပါ</div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">မွေးသက္ကရာဇ်</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="date" name="dob" class="form-control" required max="">
+                                                                                </div>
+                                                                                <div class="invalid-feedback">မွေးနေ့ ရွေးချယ်ပါ</div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="mb-4">
+                                                                            <label class="form-label">လိပ်စာ</label>
+                                                                            <div class="input-group">
+                                                                                <textarea class="form-control" name="address" rows="3" placeholder="လက်ရှိနေထိုင်ရာ လိပ်စာအပြည့်အစုံ" required></textarea>
+                                                                            </div>
+                                                                            <div class="invalid-feedback">လိပ်စာ ဖြည့်သွင်းပါ</div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">ယာဉ်မောင်းလိုင်စင်အမှတ်</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="text" name="license_number" class="form-control" placeholder="ဥပမာ - 0000/YGN/12345" required>
+                                                                                </div>
+                                                                                <div class="invalid-feedback">လိုင်စင်အမှတ် ဖြည့်သွင်းပါ</div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">လိုင်စင်သက်တမ်း ကုန်ဆုံးရက်</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="date" name="license_expiry" class="form-control" required min="">
+                                                                                </div>
+                                                                                <div class="invalid-feedback">ကုန်ဆုံးရက် ရွေးချယ်ပါ</div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex justify-content-between mt-5">
+                                                                            <button type="button" class="btn btn-prev btn-action prev-step" data-prev="1">
+                                                                                <i class="fas fa-arrow-left me-2"></i> နောက်သို့
+                                                                            </button>
+                                                                            <div class="input-group">
+                                                                                <button type="button" class="btn btn-next btn-action next-step" data-next="3">
+                                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Step 3: Vehicle Information -->
+                                                                    <div class="step" id="step3">
+                                                                        <h4 class="form-section-title"><i class="fas fa-car me-2"></i>ယာဉ် အချက်အလက်များ</h4>
+
+                                                                        <div class="mb-4">
+                                                                            <label class="form-label">ယာဉ်မှတ်ပုံတင်အမှတ်</label>
+                                                                            <div class="input-group">
+                                                                                <input type="text" name="vehicle_registration" class="form-control" placeholder="ဥပမာ - 1Y-2345" required>
+                                                                            </div>
+                                                                            <div class="invalid-feedback">ယာဉ်မှတ်ပုံတင်အမှတ် ဖြည့်သွင်းပါ</div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">ယာဉ်အမျိုးအစား</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="text" name="vehicle_model" class="form-control" placeholder="ဥပမာ - Toyota Probox" required>
+                                                                                </div>
+                                                                                <div class="invalid-feedback">ယာဉ်အမျိုးအစား ဖြည့်သွင်းပါ</div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">ထုတ်လုပ်သည့်နှစ်</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="number" name="vehicle_year" class="form-control" placeholder="ဥပမာ - 2018" min="1990" max="2025" required>
+                                                                                </div>
+                                                                                <div class="invalid-feedback">ထုတ်လုပ်သည့်နှစ် မှန်ကန်စွာ ဖြည့်သွင်းပါ (1990-2025)</div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">ယာဉ်အရောင်</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="text" name="vehicle_color" class="form-control" placeholder="ဥပမာ - အဖြူရောင်" required>
+                                                                                </div>
+                                                                                <div class="invalid-feedback">ယာဉ်အရောင် ဖြည့်သွင်းပါ</div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <label class="form-label">အင်ဂျင်အမှတ်</label>
+                                                                                <div class="input-group">
+                                                                                    <input type="text" name="engine_number" class="form-control" placeholder="ဥပမာ - 2NZ-1234567" required>
+                                                                                </div>
+                                                                                <div class="invalid-feedback">အင်ဂျင်အမှတ် ဖြည့်သွင်းပါ</div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex justify-content-between mt-5">
+                                                                            <button type="button" class="btn btn-prev btn-action prev-step" data-prev="2">
+                                                                                <i class="fas fa-arrow-left me-2"></i> နောက်သို့
+                                                                            </button>
+                                                                            <div class="input-group">
+                                                                                <button type="button" class="btn btn-next btn-action next-step" data-next="4">
+                                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Step 4: Document Upload -->
+                                                                    <div class="step" id="step4">
+                                                                        <h4 class="form-section-title"><i class="fas fa-file-upload me-2"></i>လိုအပ်သော စာရွက်စာတမ်းများ</h4>
+                                                                        <p class="text-muted mb-4">အောက်ပါစာရွက်စာတမ်းများအား ရှင်းလင်းပြတ်သားစွာဖြင့် တင်ပြရန်</p>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <div class="document-upload">
+                                                                                    <i class="fas fa-id-card"></i>
+                                                                                    <h5>နိုင်ငံသားစိစစ်ရေးကတ်ပြား</h5>
+                                                                                    <p class="text-muted">ရှေ့ဖက်</p>
+                                                                                    <div class="input-group">
+                                                                                        <input type="file" name="nrc_front" id="nrc_front" class="d-none" accept="image/*" required>
+                                                                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('nrc_front').click()">
+                                                                                            ဓာတ်ပုံတင်ရန်
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="file-info" id="nrc_front_info"></div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <div class="document-upload">
+                                                                                    <i class="fas fa-id-card"></i>
+                                                                                    <h5>နိုင်ငံသားစိစစ်ရေးကတ်ပြား</h5>
+                                                                                    <p class="text-muted">နောက်ဖက်</p>
+                                                                                    <div class="input-group">
+                                                                                        <input type="file" name="nrc_back" id="nrc_back" class="d-none" accept="image/*" required>
+                                                                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('nrc_back').click()">
+                                                                                            ဓာတ်ပုံတင်ရန်
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="file-info" id="nrc_back_info"></div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <div class="document-upload">
+                                                                                    <i class="fas fa-id-badge"></i>
+                                                                                    <h5>ယာဉ်မောင်းလိုင်စင်</h5>
+                                                                                    <p class="text-muted">ရှေ့ဖက်</p>
+                                                                                    <div class="input-group">
+                                                                                        <input type="file" name="license_front" id="license_front" class="d-none" accept="image/*" required>
+                                                                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('license_front').click()">
+                                                                                            ဓာတ်ပုံတင်ရန်
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="file-info" id="license_front_info"></div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <div class="document-upload">
+                                                                                    <i class="fas fa-id-badge"></i>
+                                                                                    <h5>ယာဉ်မောင်းလိုင်စင်</h5>
+                                                                                    <p class="text-muted">နောက်ဖက်</p>
+                                                                                    <div class="input-group">
+                                                                                        <input type="file" name="license_back" id="license_back" class="d-none" accept="image/*" required>
+                                                                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('license_back').click()">
+                                                                                            ဓာတ်ပုံတင်ရန်
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="file-info" id="license_back_info"></div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <div class="document-upload">
+                                                                                    <i class="fas fa-file-contract"></i>
+                                                                                    <h5>ယာဉ်မှတ်ပုံတင်စာအုပ်</h5>
+                                                                                    <p class="text-muted">(Blue Book) ဓာတ်ပုံ</p>
+                                                                                    <div class="input-group">
+                                                                                        <input type="file" name="bluebook" id="bluebook" class="d-none" accept="image/*" required>
+                                                                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('bluebook').click()">
+                                                                                            ဓာတ်ပုံတင်ရန်
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="file-info" id="bluebook_info"></div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6 mb-4">
+                                                                                <div class="document-upload">
+                                                                                    <i class="fas fa-car"></i>
+                                                                                    <h5>ယာဉ်၏ ဓာတ်ပုံ</h5>
+                                                                                    <p class="text-muted">အရှေ့၊ အနောက်၊ ဘယ်၊ ညာ</p>
+                                                                                    <div class="input-group">
+                                                                                        <input type="file" name="vehicle_photos[]" id="vehicle_photos" class="d-none" accept="image/*" multiple required>
+                                                                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('vehicle_photos').click()">
+                                                                                            ဓာတ်ပုံတင်ရန်
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="file-info" id="vehicle_photos_info"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="d-flex justify-content-between mt-4">
+                                                                            <button type="button" class="btn btn-prev btn-action prev-step" data-prev="3">
+                                                                                <i class="fas fa-arrow-left me-2"></i> နောက်သို့
+                                                                            </button>
+                                                                            <div class="input-group">
+                                                                                <button type="button" class="btn btn-next btn-action next-step" data-next="5">
+                                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Step 5: Review and Submit -->
+                                                                    <div class="step" id="step5">
+                                                                        <h4 class="form-section-title"><i class="fas fa-check-circle me-2"></i>အတည်ပြုခြင်းနှင့် လက်မှတ်ရေးထိုးခြင်း</h4>
+
+                                                                        <div class="alert alert-info">
+                                                                            <i class="fas fa-info-circle me-2"></i>ကျေးဇူးပြု၍ သင် ဖြည့်သွင်းထားသော အချက်အလက်များကို ပြန်လည်စစ်ဆေးပါ။
+                                                                        </div>
+
+                                                                        <div class="review-container mt-4 mb-4">
+                                                                            <div class="review-item d-flex">
+                                                                                <div class="review-label">ဖုန်းနံပါတ်:</div>
+                                                                                <div class="review-value" id="review-phone"></div>
+                                                                            </div>
+
+                                                                            <div class="review-item d-flex">
+                                                                                <div class="review-label">ယာဉ်အမျိုးအစား:</div>
+                                                                                <div class="review-value" id="review-vehicle-type"></div>
+                                                                            </div>
+                                                                            <div class="review-item d-flex">
+                                                                                <div class="review-label">NRC အမှတ်:</div>
+                                                                                <div class="review-value" id="review-nrc"></div>
+                                                                            </div>
+                                                                            <div class="review-item d-flex">
+                                                                                <div class="review-label">လိုင်စင်အမှတ်:</div>
+                                                                                <div class="review-value" id="review-license"></div>
+                                                                            </div>
+                                                                            <div class="review-item d-flex">
+                                                                                <div class="review-label">ယာဉ်မှတ်ပုံတင်အမှတ်:</div>
+                                                                                <div class="review-value" id="review-registration"></div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-check mt-4 mb-4">
+                                                                            <div class="input-group">
+                                                                                <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
+                                                                            </div>
+                                                                            <label class="form-check-label" for="terms">
+                                                                                ကျွန်ုပ်သည် RideShare ၏ <a href="#" class="text-primary">ဝန်ဆောင်မှုစည်းမျဉ်းများ</a> နှင့်
+                                                                                <a href="#" class="text-primary">ကိုယ်ရေးကိုယ်တာမူဝါဒ</a> တို့ကို ဖတ်ရှုပြီး သဘောတူပါသည်။
+                                                                            </label>
+                                                                            <div class="invalid-feedback">ကျေးဇူးပြု၍ စည်းမျဉ်းများကို သဘောတူညီပါ</div>
+                                                                        </div>
+
+                                                                        <div class="d-flex justify-content-between mt-5">
+                                                                            <button type="button" class="btn btn-prev btn-action prev-step" data-prev="4">
+                                                                                <i class="fas fa-arrow-left me-2"></i> နောက်သို့
+                                                                            </button>
+                                                                            <div class="input-group">
+                                                                                <button type="submit" class="btn btn-submit btn-action">
+                                                                                    <i class="fas fa-paper-plane me-2"></i> မှတ်ပုံတင်ရန်
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <!-- Error Display -->
-                                                <?php
-
-                                                // Display driver signup errors if any
-                                                if (isset($_SESSION['driver_signup_errors'])): ?>
-                                                    <div class="alert alert-danger">
-                                                        <strong>မှတ်ပုံတင်မှုတွင် အမှားတစ်ခုရှိပါသည်:</strong>
-                                                        <ul class="mb-0">
-                                                            <?php foreach ($_SESSION['driver_signup_errors'] as $error): ?>
-                                                                <li><?php echo $error; ?></li>
-                                                            <?php endforeach; ?>
-                                                        </ul>
-                                                    </div>
-                                                    <?php unset($_SESSION['driver_signup_errors']); ?>
-                                                <?php endif; ?>
-
-                                                <!-- Progress Bar -->
-                                                <div class="progress-container">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="step-indicators">
-                                                        <div class="step-indicator active">1</div>
-                                                        <div class="step-indicator">2</div>
-                                                        <div class="step-indicator">3</div>
-                                                        <div class="step-indicator">4</div>
-                                                        <div class="step-indicator">5</div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Form Steps -->
-                                                <form id="driverSignupForm" action="auth/driver_signup.php" method="POST" enctype="multipart/form-data">
-                                                    <!-- Step 1: Basic Information -->
-                                                    <div class="step active" id="step1">
-                                                        <h4 class="mb-4"><i class="fas fa-user-circle me-2"></i>အခြေခံ အချက်အလက်များ</h4>
-
-                                                        <div class="mb-3">
-                                                            <label class="form-label">ဖုန်းနံပါတ်</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-text">+95</span>
-                                                                <input type="tel" name="phone" class="form-control" placeholder="9xxxxxxxx" pattern="[9]{1}[0-9]{8,9}" required>
-                                                            </div>
-                                                            <small class="form-text text-muted">ဥပမာ - 912345678</small>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="form-label">အမည်</label>
-                                                            <div class="input-group">
-                                                                <input type="text" name="name" class="form-control" placeholder="သင့်အမည် အပြည့်အစုံ" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="mb-4">
-                                                            <label class="form-label">ယာဉ်အမျိုးအစား</label>
-                                                            <div class="input-group">
-                                                                <select class="form-select" name="vehicle_type" required>
-                                                                    <option value="" selected disabled>ရွေးချယ်ပါ</option>
-                                                                    <option value="car"><i class="fas fa-car vehicle-icon"></i>ကား (Toyota, Suzuki)</option>
-                                                                    <option value="premium"><i class="fas fa-truck vehicle-icon"></i>အိုးဝေ (Oway)</option>
-                                                                    <option value="xl"><i class="fas fa-motorcycle vehicle-icon"></i>ဆိုင်ကယ် (Motorcycle)</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-end">
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-primary next-step" data-next="2">
-                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Step 2: Driver Information -->
-                                                    <div class="step" id="step2">
-                                                        <h4 class="mb-4"><i class="fas fa-id-card me-2"></i>ယာဉ်မောင်း အချက်အလက်များ</h4>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">မှတ်ပုံတင်အမှတ် (NRC)</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" name="nrc" class="form-control" placeholder="ဥပမာ - ၁၂/ကမန(နိုင်)၁၂၃၄၅၆" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">မွေးသက္ကရာဇ်</label>
-                                                                <div class="input-group">
-                                                                    <input type="date" name="dob" class="form-control" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="form-label">လိပ်စာ</label>
-                                                            <div class="input-group">
-                                                                <textarea class="form-control" name="address" rows="3" placeholder="လက်ရှိနေထိုင်ရာ လိပ်စာအပြည့်အစုံ" required></textarea>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">ယာဉ်မောင်းလိုင်စင်အမှတ်</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" name="license_number" class="form-control" placeholder="ဥပမာ - 0000/YGN/12345" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">လိုင်စင်သက်တမ်း ကုန်ဆုံးရက်</label>
-                                                                <div class="input-group">
-                                                                    <input type="date" name="license_expiry" class="form-control" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-outline-secondary prev-step" data-prev="1">
-                                                                    <i class="fas fa-arrow-left me-2"></i> နောက်သို့
-                                                                </button>
-                                                            </div>
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-primary next-step" data-next="3">
-                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Step 3: Vehicle Information -->
-                                                    <div class="step" id="step3">
-                                                        <h4 class="mb-4"><i class="fas fa-car me-2"></i>ယာဉ် အချက်အလက်များ</h4>
-
-                                                        <div class="mb-3">
-                                                            <label class="form-label">ယာဉ်မှတ်ပုံတင်အမှတ်</label>
-                                                            <div class="input-group">
-                                                                <input type="text" name="vehicle_registration" class="form-control" placeholder="ဥပမာ - 1Y-2345" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">ယာဉ်အမျိုးအစား</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" name="vehicle_model" class="form-control" placeholder="ဥပမာ - Toyota Probox" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">ထုတ်လုပ်သည့်နှစ်</label>
-                                                                <div class="input-group">
-                                                                    <input type="number" name="vehicle_year" class="form-control" placeholder="ဥပမာ - 2018" min="1990" max="2025" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">ယာဉ်အရောင်</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" name="vehicle_color" class="form-control" placeholder="ဥပမာ - အဖြူရောင်" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-3">
-                                                                <label class="form-label">အင်ဂျင်အမှတ်</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" name="engine_number" class="form-control" placeholder="ဥပမာ - 2NZ-1234567" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-outline-secondary prev-step" data-prev="2">
-                                                                    <i class="fas fa-arrow-left me-2"></i> နောက်သို့
-                                                                </button>
-                                                            </div>
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-primary next-step" data-next="4">
-                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Step 4: Document Upload -->
-                                                    <div class="step" id="step4">
-                                                        <h4 class="mb-4"><i class="fas fa-file-upload me-2"></i>လိုအပ်သော စာရွက်စာတမ်းများ</h4>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6 mb-4">
-                                                                <div class="document-upload">
-                                                                    <i class="fas fa-id-card"></i>
-                                                                    <h5>နိုင်ငံသားစိစစ်ရေးကတ်ပြား</h5>
-                                                                    <p class="text-muted">ရှေ့ဖက်</p>
-                                                                    <div class="input-group">
-                                                                        <input type="file" name="nrc_front" class="d-none" accept="image/*">
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-primary">ဓာတ်ပုံတင်ရန်</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-4">
-                                                                <div class="document-upload">
-                                                                    <i class="fas fa-id-card"></i>
-                                                                    <h5>နိုင်ငံသားစိစစ်ရေးကတ်ပြား</h5>
-                                                                    <p class="text-muted">နောက်ဖက်</p>
-                                                                    <div class="input-group">
-                                                                        <input type="file" name="nrc_back" class="d-none" accept="image/*">
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-primary">ဓာတ်ပုံတင်ရန်</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-4">
-                                                                <div class="document-upload">
-                                                                    <i class="fas fa-id-badge"></i>
-                                                                    <h5>ယာဉ်မောင်းလိုင်စင်</h5>
-                                                                    <p class="text-muted">ရှေ့ဖက်</p>
-                                                                    <div class="input-group">
-                                                                        <input type="file" name="license_front" class="d-none" accept="image/*">
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-primary">ဓာတ်ပုံတင်ရန်</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-4">
-                                                                <div class="document-upload">
-                                                                    <i class="fas fa-id-badge"></i>
-                                                                    <h5>ယာဉ်မောင်းလိုင်စင်</h5>
-                                                                    <p class="text-muted">နောက်ဖက်</p>
-                                                                    <div class="input-group">
-                                                                        <input type="file" name="license_back" class="d-none" accept="image/*">
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-primary">ဓာတ်ပုံတင်ရန်</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-4">
-                                                                <div class="document-upload">
-                                                                    <i class="fas fa-file-contract"></i>
-                                                                    <h5>ယာဉ်မှတ်ပုံတင်စာအုပ်</h5>
-                                                                    <p class="text-muted">(Blue Book) ဓာတ်ပုံ</p>
-                                                                    <div class="input-group">
-                                                                        <input type="file" name="bluebook" class="d-none" accept="image/*">
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-primary">ဓာတ်ပုံတင်ရန်</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6 mb-4">
-                                                                <div class="document-upload">
-                                                                    <i class="fas fa-car"></i>
-                                                                    <h5>ယာဉ်၏ ဓာတ်ပုံ</h5>
-                                                                    <p class="text-muted">အရှေ့၊ အနောက်၊ ဘယ်၊ ညာ</p>
-                                                                    <div class="input-group">
-                                                                        <input type="file" name="vehicle_photos[]" class="d-none" accept="image/*" multiple>
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn btn-sm btn-outline-primary">ဓာတ်ပုံတင်ရန်</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-outline-secondary prev-step" data-prev="3">
-                                                                    <i class="fas fa-arrow-left me-2"></i> နောက်သို့
-                                                                </button>
-                                                            </div>
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-primary next-step" data-next="5">
-                                                                    နောက်တစ်ဆင့် <i class="fas fa-arrow-right ms-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Step 5: Review and Submit -->
-                                                    <div class="step" id="step5">
-                                                        <h4 class="mb-4"><i class="fas fa-check-circle me-2"></i>အတည်ပြုခြင်းနှင့် လက်မှတ်ရေးထိုးခြင်း</h4>
-                                                        <div class="form-check mt-4 mb-4">
-                                                            <div class="input-group">
-                                                                <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
-                                                            </div>
-                                                            <label class="form-check-label" for="terms">
-                                                                ကျွန်ုပ်သည် RideShare ၏ <a href="#">ဝန်ဆောင်မှုစည်းမျဉ်းများ</a> နှင့်
-                                                                <a href="#">ကိုယ်ရေးကိုယ်တာမူဝါဒ</a> တို့ကို ဖတ်ရှုပြီး သဘောတူပါသည်။
-                                                            </label>
-                                                        </div>
-
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="input-group">
-                                                                <button type="button" class="btn btn-outline-secondary prev-step" data-prev="4">
-                                                                    <i class="fas fa-arrow-left me-2"></i> နောက်သို့
-                                                                </button>
-                                                            </div>
-                                                            <div class="input-group">
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    <i class="fas fa-paper-plane me-2"></i> မှတ်ပုံတင်ရန်
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
                                             </div>
-                                        <!-- end of driver section  -->
+
 
                                         </div>
                                     </div>
@@ -698,30 +761,62 @@
                             </section>
 
                             <!-- Stats Section -->
+                            <?php
+                            $connection = new mysqli("localhost", "root", "", "rideshare");
+                            if ($connection->connect_error) {
+                                die("Connection failed: " . $connection->connect_error);
+                            }
+
+                            $sqlDrivers = "SELECT COUNT(*) AS total_drivers FROM drivers  WHERE status='approved' AND is_available=1";
+                            $resultDrivers = $connection->query($sqlDrivers);
+                            $rowDrivers = $resultDrivers->fetch_assoc();
+
+                            $sqlRiders = "SELECT COUNT(*) AS total_riders FROM riders";
+                            $resultRiders = $connection->query($sqlRiders);
+                            $rowRiders = $resultRiders->fetch_assoc();
+
+                            $connection->close();
+
+                            // Additional stats
+                            $cities = 3;
+                            $satisfaction = 98;
+                            ?>
+
                             <section class="stats-section">
                                 <div class="container">
                                     <div class="row text-center">
                                         <div class="col-md-3 col-6 mb-4 mb-md-0">
                                             <div class="stat-item">
-                                                <div class="stat-number" data-count="25000">0</div>
+                                                <div class="stat-number" data-count="<?php echo $rowDrivers['total_drivers']; ?>">
+                                                    <?php echo $rowDrivers['total_drivers']; ?>
+                                                </div>
                                                 <div class="stat-label">Active Drivers</div>
                                             </div>
                                         </div>
+
                                         <div class="col-md-3 col-6 mb-4 mb-md-0">
                                             <div class="stat-item">
-                                                <div class="stat-number" data-count="500000">0</div>
+                                                <div class="stat-number" data-count="<?php echo $rowRiders['total_riders']; ?>">
+                                                    <?php echo $rowRiders['total_riders']; ?>
+                                                </div>
                                                 <div class="stat-label">စီးနင်းသူများ</div>
                                             </div>
                                         </div>
+
                                         <div class="col-md-3 col-6">
                                             <div class="stat-item">
-                                                <div class="stat-number" data-count="120">0</div>
-                                                <div class="stat-label">မြို့များ</div>
+                                                <div class="stat-number" data-count="<?php echo $cities; ?>">
+                                                    <?php echo $cities; ?>
+                                                </div>
+                                                <div class="stat-label">မြိုများ</div>
                                             </div>
                                         </div>
+
                                         <div class="col-md-3 col-6">
                                             <div class="stat-item">
-                                                <div class="stat-number" data-count="98">0</div>
+                                                <div class="stat-number" data-count="<?php echo $satisfaction; ?>">
+                                                    <?php echo $satisfaction; ?>
+                                                </div>
                                                 <div class="stat-label">ကျေနပ်မှု</div>
                                             </div>
                                         </div>

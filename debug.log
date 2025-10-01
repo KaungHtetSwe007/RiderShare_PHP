@@ -1,0 +1,422 @@
+[20-Aug-2025 18:45:25 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:25
+[20-Aug-2025 18:45:25 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:27 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:27
+[20-Aug-2025 18:45:27 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:28 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:28
+[20-Aug-2025 18:45:28 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:28 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:28
+[20-Aug-2025 18:45:28 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:28 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:28
+[20-Aug-2025 18:45:28 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:28 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:28
+[20-Aug-2025 18:45:28 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:29 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:29
+[20-Aug-2025 18:45:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:29 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:29
+[20-Aug-2025 18:45:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:29 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:29
+[20-Aug-2025 18:45:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:29 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:29
+[20-Aug-2025 18:45:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:29 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:29
+[20-Aug-2025 18:45:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:31 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:31
+[20-Aug-2025 18:45:31 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:31 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:31
+[20-Aug-2025 18:45:31 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:31 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:31
+[20-Aug-2025 18:45:31 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:32 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:32
+[20-Aug-2025 18:45:32 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[20-Aug-2025 18:45:32 Europe/Berlin] get_available_drivers.php executed at 2025-08-20 18:45:32
+[20-Aug-2025 18:45:32 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:30:21 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:30:21
+[21-Aug-2025 04:30:21 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:30:27 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:30:27
+[21-Aug-2025 04:30:27 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:38 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:38
+[21-Aug-2025 04:40:38 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:41 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:41
+[21-Aug-2025 04:40:41 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:42 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:42
+[21-Aug-2025 04:40:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:44 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:44
+[21-Aug-2025 04:40:44 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:44 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:44
+[21-Aug-2025 04:40:44 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:45 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:45
+[21-Aug-2025 04:40:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:45 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:45
+[21-Aug-2025 04:40:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:45 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:45
+[21-Aug-2025 04:40:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:45 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:45
+[21-Aug-2025 04:40:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:45 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:45
+[21-Aug-2025 04:40:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:45 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:45
+[21-Aug-2025 04:40:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:46
+[21-Aug-2025 04:40:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:46
+[21-Aug-2025 04:40:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:46
+[21-Aug-2025 04:40:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:46
+[21-Aug-2025 04:40:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:46
+[21-Aug-2025 04:40:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:46
+[21-Aug-2025 04:40:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:47
+[21-Aug-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:47
+[21-Aug-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:47
+[21-Aug-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:47
+[21-Aug-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:47
+[21-Aug-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:47
+[21-Aug-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 04:40:48 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 04:40:48
+[21-Aug-2025 04:40:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:93
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(93): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 93
+[21-Aug-2025 05:01:14 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:01:14
+[21-Aug-2025 05:04:07 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:04:07
+[21-Aug-2025 05:12:36 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:36
+[21-Aug-2025 05:12:36 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:38 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:38
+[21-Aug-2025 05:12:38 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:43 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:43
+[21-Aug-2025 05:12:43 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:44 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:44
+[21-Aug-2025 05:12:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:46 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:46
+[21-Aug-2025 05:12:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:47 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:47
+[21-Aug-2025 05:12:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:48 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:48
+[21-Aug-2025 05:12:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:48 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:48
+[21-Aug-2025 05:12:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:49 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:49
+[21-Aug-2025 05:12:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:49 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:49
+[21-Aug-2025 05:12:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:49 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:49
+[21-Aug-2025 05:12:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:49 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:49
+[21-Aug-2025 05:12:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:12:49 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:12:49
+[21-Aug-2025 05:12:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:13:57 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:13:57
+[21-Aug-2025 05:13:57 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:25:40 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:25:40
+[21-Aug-2025 05:25:40 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:25:42 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:25:42
+[21-Aug-2025 05:25:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 05:28:50 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 05:28:50
+[21-Aug-2025 05:28:50 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 07:09:26 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 07:09:26
+[21-Aug-2025 07:09:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 07:09:29 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 07:09:29
+[21-Aug-2025 07:09:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 15:17:48 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 15:17:48
+[21-Aug-2025 15:17:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 15:17:51 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 15:17:51
+[21-Aug-2025 15:17:51 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 15:33:50 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 15:33:50
+[21-Aug-2025 15:33:50 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 15:56:15 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 15:56:15
+[21-Aug-2025 15:56:15 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 17:02:14 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 17:02:14
+[21-Aug-2025 17:02:14 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 17:02:16 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 17:02:16
+[21-Aug-2025 17:02:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 17:02:17 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 17:02:17
+[21-Aug-2025 17:02:17 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 17:02:17 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 17:02:17
+[21-Aug-2025 17:02:17 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89
+[21-Aug-2025 17:02:17 Europe/Berlin] get_available_drivers.php executed at 2025-08-21 17:02:17
+[21-Aug-2025 17:02:17 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rating' in 'field list' in C:\xampp\htdocs\Rider\get_available_drivers.php:89
+Stack trace:
+#0 C:\xampp\htdocs\Rider\get_available_drivers.php(89): PDO->prepare('\r\n    SELECT \r\n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Rider\get_available_drivers.php on line 89

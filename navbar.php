@@ -41,11 +41,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-1"></i> ခရီးစဉ်များ</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-wallet me-1"></i> ငွေကြေးများ</a>
-                </li>
                 <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                    <a class="btn btn-cta" style="background-color: goldenrod;" href="#"><i class="fas fa-bolt me-1"></i> ယခုစီးပါ</a>
+                    <a class="btn btn-cta" style="background-color: goldenrod;" href="#driverForm"><i class="fas fa-bolt me-1"></i> ယခုစီးပါ</a>
                 </li>
                 
                 <!-- Profile Dropdown -->
@@ -63,8 +60,7 @@
                             <div class="small"><?php echo $_SESSION['rider_phone']; ?></div>
                         </div>
                         <a href="#"><i class="fas fa-user-circle"></i> ကိုယ်ရေးအချက်အလက်</a>
-                        <a href="#"><i class="fas fa-history"></i> ခရီးစဉ်မှတ်တမ်း</a>
-                        <a href="#"><i class="fas fa-credit-card"></i> ငွေပေးချေမှု</a>
+                        <a href="/rides_history.php"><i class="fas fa-history"></i> ခရီးစဉ်မှတ်တမ်း</a>
                         <a href="#"><i class="fas fa-cog"></i> ဆက်တင်များ</a>
                         <a href="#"><i class="fas fa-lock"></i> လျှို့ဝှက်နံပါတ် ပြောင်းရန်</a>
                         <a href="/auth/rider_logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> အကောင့်မှ ထွက်ရန်</a>
